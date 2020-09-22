@@ -1,5 +1,6 @@
 ﻿using EShopApi.Context;
 using EShopApi.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -27,19 +28,19 @@ namespace EShopApi.Services
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        public Task<IEnumerable<Product>> GetProductsAsync()
+        public async Task<IEnumerable<Product>> GetProductsAsync()
         {
-            return await _context.Product.Include(b => b.Category).ToListAsync();
+            return await _context.Products.Include(b => b.Category).ToListAsync();
         }
 
-        public Task<Product> GetProductAsync(long ProductId)
+        public async Task<Product> GetProductAsync(long ProductId)
         {
-            throw new NotImplementedException();
+            return await _context.Products.Where(p => p.ProductId == ProductId).Include(b => b.Category).FirstOrDefaultAsync();
         }
 
-        public Task<IEnumerable<Product>> GetProductsAsync(IEnumerable<long> ProductIds)
+        public async Task<IEnumerable<Product>> GetProductsAsync(IEnumerable<long> ProductIds)
         {
-            throw new NotImplementedException();
+            return await _context.Products.Where(p => ProductIds.Contains(p.ProductId)).Include(b => b.Category).ToListAsync();
         }
 
         public void AddProduct(Product ProductToAdd)

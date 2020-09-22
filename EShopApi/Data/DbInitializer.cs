@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EShopApi.Context;
+using EShopApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +9,7 @@ namespace EShopApi.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(this CityManagementContext context)
+        public static void Initialize(this EShopContext context)
         {
             //// first, clear the database.  This ensures we can always start 
             //// fresh with each demo.  Not advised for production environments, obviously :-)
@@ -17,66 +19,62 @@ namespace EShopApi.Data
             context.Database.EnsureCreated();
 
             // Look for any students.
-            if (context.Cities.Any())
+            if (context.Products.Any())
             {
                 return;   // DB has been seeded
             }
 
             // init seed data
-            var cities = new List<City>()
+            var categories = new List<Category>()
             {
-                new City()
+                new Category()
                 {
-                    CityId = 1,
-                    Name = "Gama",
-                    Description = "The Villains World City.",
-                    IsCapital = false,
-                    PointsOfInterest = new List<PointOfInterest>()
+                    CategoryId = 1,
+                    CategoryName = "Eletronics",
+                    Description = "Eletronics in general"
+                },
+                new Category()
+                {
+                    CategoryId = 2,
+                    CategoryName = "Home",
+                    Description = "Home in general"
+                }
+            };
+
+            var products = new List<Product>()
+            {
+                new Product()
+                {
+                    ProductId = 1,
+                    ProductName = "Celular TOP 1",
+                    Description = "great celaular",
+                    ProductCode = "cel01",
+                    Price = 10000,
+                    ReleaseDate = new DateTime(2020, 09, 22),
+                    Category = new Category
                     {
-                        new PointOfInterest() {
-                            PointOfInterestId = 1,
-                            Name = "Cine Itapuã",
-                            Description = "Cinema da Cidade aponsetado",
-                            CityId = 1
-                        },
-                        new PointOfInterest() {
-                            PointOfInterestId = 2,
-                            Name = "Igreja São Sebastião",
-                            Description = "Paróquia da Cidade",
-                            CityId = 1
-                        },
-                        new PointOfInterest() {
-                            PointOfInterestId = 3,
-                            Name = "Sayonara",
-                            Description = "Referência Entrada da Cidade",
-                            CityId = 1
-                        }
+                        CategoryId = 1,
+                        CategoryName = "Eletronics",
+                        Description = "Eletronics in general"
                     }
                 },
-                new City()
+                new Product()
                 {
-                    //CityId = 2,
-                    Name = "Octogonal",
-                    Description = "The Middle City.",
-                    IsCapital = false,
-                    PointsOfInterest = new List<PointOfInterest>()
+                    ProductId = 2,
+                    ProductName = "TV 4K 1",
+                    Description = "great TV",
+                    ProductCode = "tv01",
+                    Price = 5000,
+                    ReleaseDate = new DateTime(2020, 09, 22),
+                    Category = new Category
                     {
-                        new PointOfInterest() {
-                            PointOfInterestId = 4,//1,
-                            Name = "Terraço Shopping",
-                            Description = "Shopping da Cidade",
-                            CityId = 2
-                        },
-                        new PointOfInterest() {
-                            PointOfInterestId = 5,//2,
-                            Name = "HFA",
-                            Description = "Hospital da Cidade",
-                            CityId = 2
-                        }
+                        CategoryId = 1,
+                        CategoryName = "Eletronics",
+                        Description = "Eletronics in general"
                     }
                 }
              };
-            context.Cities.AddRange(cities);
+            context.Products.AddRange(products);
             context.SaveChanges();
         }
     }
