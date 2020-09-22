@@ -1,0 +1,10 @@
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\obj\Debug\netcoreapp3.1\EShopApi.csprojAssemblyReference.cache
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\obj\Debug\netcoreapp3.1\EShopApi.AssemblyInfoInputs.cache
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\obj\Debug\netcoreapp3.1\EShopApi.AssemblyInfo.cs
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\obj\Debug\netcoreapp3.1\EShopApi.RazorTargetAssemblyInfo.cache
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\obj\Debug\netcoreapp3.1\staticwebassets\EShopApi.StaticWebAssets.Manifest.cache
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\obj\Debug\netcoreapp3.1\staticwebassets\EShopApi.StaticWebAssets.xml
+D:\Pessoal\Projects\NetCore\EShop\EShopApi\bin\Debug\netcoreapp3.1\EShopApi.exe
