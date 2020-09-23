@@ -49,6 +49,7 @@ namespace EShopApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseCors(option => option.AllowAnyOrigin()); 
             app.UseHttpsRedirection();
 
             app.UseRouting();
