@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EShopApi.Context;
 using EShopApi.Services;
 using Microsoft.AspNetCore.Builder;
@@ -12,8 +8,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace EShopApi
 {
@@ -29,7 +30,12 @@ namespace EShopApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EShopApi", Version = "v1" });
+            });
 
             var connectionString = Configuration["ConnectionStrings:EShopDBConnectionString"];
             services.AddDbContext<EShopContext>(o => o.UseSqlServer(connectionString));
@@ -38,7 +44,6 @@ namespace EShopApi
             services.AddScoped<IProductRepository, MockProductRepository>();
             services.AddScoped<ICategoryRepository, MockCategoryRepository>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,9 +52,11 @@ namespace EShopApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "EShopApi v1"));
             }
 
-            app.UseCors(option => option.AllowAnyOrigin()); 
+            app.UseCors(option => option.AllowAnyOrigin());
             app.UseHttpsRedirection();
 
             app.UseRouting();

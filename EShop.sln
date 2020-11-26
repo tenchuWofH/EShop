@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopApi", "EShopApi\EShopApi.csproj", "{852A201F-E295-45D5-A0FF-BD76DD6FE7C1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShopApp", "BlazorShopApp\BlazorShopApp.csproj", "{3B3F937F-F80A-492B-BEAD-CE438A082924}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopApi", "EShopApi\EShopApi.csproj", "{E920AF90-11C0-4A6C-AB5B-996B46B608EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{852A201F-E295-45D5-A0FF-BD76DD6FE7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{852A201F-E295-45D5-A0FF-BD76DD6FE7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{852A201F-E295-45D5-A0FF-BD76DD6FE7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{852A201F-E295-45D5-A0FF-BD76DD6FE7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B3F937F-F80A-492B-BEAD-CE438A082924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B3F937F-F80A-492B-BEAD-CE438A082924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B3F937F-F80A-492B-BEAD-CE438A082924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B3F937F-F80A-492B-BEAD-CE438A082924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E920AF90-11C0-4A6C-AB5B-996B46B608EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E920AF90-11C0-4A6C-AB5B-996B46B608EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E920AF90-11C0-4A6C-AB5B-996B46B608EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E920AF90-11C0-4A6C-AB5B-996B46B608EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
