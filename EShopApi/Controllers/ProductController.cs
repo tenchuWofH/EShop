@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using EShopApi.Models;
 using EShopApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EShopApi.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class ProductController : ControllerBase
     {
         private readonly IProductRepository _productRepository;
@@ -34,7 +36,7 @@ namespace EShopApi.Controllers
 
         [HttpGet]
         [Route("{id}", Name = "GetProduct")]
-        public async Task<IActionResult> GetBook(int id)
+        public async Task<IActionResult> GetProduct(int id)
         {
             var product = await _productRepository.GetProductAsync(id);
             if (product == null)
@@ -43,6 +45,14 @@ namespace EShopApi.Controllers
             }
 
             return Ok(product);
+        }
+
+        //[HttpGet("GetProductsPaged")]
+        [HttpGet("paged")]
+        public async Task<IActionResult> Get([FromQuery] ProductParameters productParams)
+        {
+            var products = await _productRepository.GetProductsAsync(productParams);
+            return Ok(products);
         }
     }
 }
